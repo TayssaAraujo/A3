@@ -3,15 +3,15 @@
 
 ## 1\. Descrição do Projeto
 
-Este projeto consiste em um sistema de backend em **Java**, utilizando a **arquitetura em camadas (Repository Pattern)**, com persistência de dados em um banco de dados **MySQL**. O foco é o módulo de **Controle de Estoque** de um comércio, implementando regras de negócio e rastreabilidade.
+Este projeto consiste em um sistema de backend em **Java**, utilizando a arquitetura em camadas, com persistência de dados em um banco de dados **MySQL**. O foco é o módulo de **Controle de Estoque** de um comércio, implementando regras de negócio e rastreabilidade.
 
 ### Requisitos Funcionais Implementados:
 
   * **Cadastro de Produtos:** Armazenamento de informações básicas e estoque inicial.
   * **Controle de Estoque:** Atualização da quantidade de estoque após entradas ou saídas.
   * **Alerta de Estoque Mínimo:** Dispara um alerta quando a quantidade em estoque atinge ou é inferior ao valor **3**.
-  * **Auditoria de Movimentação (Avançado):** Registro de cada transação (entrada/saída) na tabela `MOVIMENTACAOESTOQUE` para rastreabilidade e histórico.
-  * **Interfaces:** O sistema oferece uma interface de **Console (`Main.java`)** e uma estrutura básica de **Interface Gráfica (GUI - `SistemaEstoqueGUI.java`)**.
+  * **Controle de Movimentação:** Registro de cada transação (entrada/saída) na tabela `MOVIMENTACAOESTOQUE` para rastreabilidade e histórico.
+  * **Interfaces:** O sistema oferece uma interface de **Console (`Main.java`)**.
 
 -----
 
@@ -22,16 +22,16 @@ O projeto segue o padrão de desenvolvimento em camadas, com todas as classes Ja
 | Pacote | Camada | Classes | Responsabilidade |
 | :--- | :--- | :--- | :--- |
 | `org.example.entity` | **Entity (Modelo)** | `Produto.java` | Mapeamento dos objetos de negócio (`id_produto`, `codigo`, etc.). |
-| `org.example.repository` | **Repository (DAO)** | `ProdutoRepository.java` | Contém todo o código **SQL** para CRUD e registro de movimentações. |
+| `org.example.repository` | **Repository (DAO)** | `ProdutoRepository.java` | Contém todo o código SQL para CRUD e registro de movimentações. |
 | `org.example.service` | **Service (Negócio)** | `GerenciadorDeEstoque.java` | Contém a **Lógica de Negócio** (verificação de Estoque Mínimo) e orquestração. |
-| `org.example.util` | **Utility** | `ConexaoBD.java` | Gerencia a conexão com o banco de dados (Credenciais). |
+| `org.example.util` | **Utility** | `ConexaoBD.java` | Gerencia a conexão com o banco de dados. |
 | `org.example.view` | **View/Controller** | `Main.java`, `SistemaEstoqueGUI.java` | Interfaces de usuário e controle de fluxo da aplicação. |
 
 -----
 
 ## 3\. Configuração do Banco de Dados (MySQL)
 
-O sistema utiliza o banco de dados **MySQL** com o nome `estoque_diamante`.
+O sistema utiliza o banco de dados MySQL com o nome `estoque_diamante`.
 
 ### 3.1. Credenciais de Conexão
 
@@ -40,12 +40,12 @@ As credenciais estão configuradas e confirmadas na classe `org.example.util.Con
 | Variável | Valor |
 | :--- | :--- |
 | **URL** | `jdbc:mysql://localhost:3306/estoque_diamante` |
-| **USUARIO** | `root` |
-| **SENHA** | `Assyat.123` |
+| **USUARIO** | `Seu_usuario` |
+| **SENHA** | `Sua_senha` |
 
 ### 3.2. Script SQL de Criação
 
-Execute este código no seu MySQL Workbench **antes** de rodar o código Java.
+Execute este código no seu MySQL Workbench antes de rodar o código Java.
 
 ```sql
 -- 1. ESTRUTURA DO BANCO DE DADOS
@@ -53,6 +53,7 @@ CREATE DATABASE IF NOT EXISTS estoque_diamante
     DEFAULT CHARACTER SET utf8
     DEFAULT COLLATE utf8_general_ci;
 
+-- Direciona o sistema a usar o bando de dados criado
 USE estoque_diamante;
 
 -- Limpa as tabelas existentes para garantir a nova estrutura
@@ -70,7 +71,7 @@ CREATE TABLE PRODUTOS (
     estoqueMinimo INT NOT NULL COMMENT 'Valor fixo em 3, usado para alertas'
 );
 
--- 3. TABELA MOVIMENTACAOESTOQUE (AUDITORIA E RASTREABILIDADE)
+-- 3. TABELA MOVIMENTACAOESTOQUE (CONTROLE E RASTREABILIDADE)
 CREATE TABLE MOVIMENTACAOESTOQUE (
     id_movimentacao INT PRIMARY KEY AUTO_INCREMENT,
     id_produto INT NOT NULL,
@@ -96,7 +97,7 @@ CREATE TABLE MOVIMENTACAOESTOQUE (
 
 1.  **Obter o Código:** Clone o repositório Git.
 2.  **Configurar o BD:** Execute o script SQL da Seção 3.2 no seu MySQL.
-3.  **Executar o `Main.java`:** Abra sua IDE (IntelliJ, Eclipse) e execute o método `main()` da classe **`org.example.view.Main.java`**.
+3.  **Executar o `Main.java`:** Abra sua IDE (IntelliJ) e execute o método `main()` da classe **`org.example.view.Main.java`**.
 4.  O sistema tentará a conexão e exibirá o Menu de Console para operações de CRUD, Baixa e Reposição.
 
 ### pendentes 
