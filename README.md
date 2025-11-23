@@ -100,12 +100,11 @@ CREATE TABLE MOVIMENTACAOESTOQUE (
 3.  **Executar o `Main.java`:** Abra sua IDE (IntelliJ) e execute o método `main()` da classe **`org.example.view.Main.java`**.
 4.  O sistema tentará a conexão e exibirá o Menu de Console para operações de CRUD, Baixa e Reposição.
 
+## 5 Teste de conexão com banco de dados 
+
 <img width="1500" height="592" alt="image" src="https://github.com/user-attachments/assets/7b328829-672b-4c46-83b8-08bc57fac174" />
 <img width="1491" height="680" alt="image" src="https://github.com/user-attachments/assets/59bbd767-aeaa-4ad8-a646-33806d932a6d" />
 
+## 5.1 Link do Sistema de Gestão e apresentação com video do sistema rodando
+APRESENTAÇÂO CANVA: https://www.canva.com/design/DAG5b3ohf20/oPaLRcbsimcmrFHDuRos8Q/edit?utm_content=DAG5b3ohf20&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
-
-### pendentes 
-
-| **Link do Sistema de Gestão** | PENDENTE | `[INSERIR LINK (Trello, Jira, etc.)]` |
-| **Gravação de Demonstração (Vídeo)** | PENDENTE | `[INSERIR LINK DO VÍDEO NO YOUTUBE/DRIVE]` |
