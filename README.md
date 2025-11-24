@@ -107,4 +107,5 @@ CREATE TABLE MOVIMENTACAOESTOQUE (
 
 ## 5.1 Link do Sistema de Gestão e apresentação com video do sistema rodando
 APRESENTAÇÂO CANVA: https://www.canva.com/design/DAG5b3ohf20/oPaLRcbsimcmrFHDuRos8Q/edit?utm_content=DAG5b3ohf20&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+JIRA: https://trello.com/invite/b/692388a4d72f63c302292180/ATTIeabc646ade0e2c603bd3bb86020cdf8819466B6C/teste
 
